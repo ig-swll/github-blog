@@ -3,8 +3,8 @@ import { ArrowSquareOut } from 'phosphor-react'
 import { StyledAnchor } from './styles'
 
 interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
-  withIcon: boolean
-  withDecoration: boolean
+  withIcon?: boolean
+  withDecoration?: boolean
 }
 
 export function Link({
@@ -18,7 +18,8 @@ export function Link({
       withIcon={withIcon}
       {...props}
     >
-      {props.children} {withIcon && <ArrowSquareOut weight="bold" />}
+      <span>{props.children}</span>{' '}
+      {withIcon && <ArrowSquareOut weight="duotone" />}
     </StyledAnchor>
   )
 }
