@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { CardContainer } from './styles'
 
 export function Card() {

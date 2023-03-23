@@ -2,9 +2,12 @@ import { ThemeProvider } from 'styled-components'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import { Home } from './pages/Home'
-import { GlobalStyles } from './styles/global'
-import { defaultTheme } from './styles/themes/default'
+import { Post } from './pages/Post'
+
 import { AppLayout } from './layouts/AppLayout'
+
+import { defaultTheme } from './styles/themes/default'
+import { GlobalStyles } from './styles/global'
 
 const router = createBrowserRouter([
   {
@@ -14,6 +17,10 @@ const router = createBrowserRouter([
       {
         path: '',
         element: <Home />,
+      },
+      {
+        path: 'post',
+        element: <Post />,
       },
     ],
   },

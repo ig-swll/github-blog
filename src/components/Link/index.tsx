@@ -1,25 +1,21 @@
 import { AnchorHTMLAttributes } from 'react'
-import { ArrowSquareOut } from 'phosphor-react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { IconDefinition } from '@fortawesome/free-solid-svg-icons'
+
 import { StyledAnchor } from './styles'
 
 interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
-  withIcon?: boolean
   withDecoration?: boolean
+  icon?: IconDefinition
+  iconAtLeft?: boolean
 }
 
-export function Link({
-  withIcon = false,
-  withDecoration = false,
-  ...props
-}: LinkProps) {
+export function Link(props: LinkProps) {
   return (
-    <StyledAnchor
-      withDecoration={withDecoration}
-      withIcon={withIcon}
-      {...props}
-    >
-      <span>{props.children}</span>{' '}
-      {withIcon && <ArrowSquareOut weight="duotone" />}
+    <StyledAnchor {...props}>
+      <span>{props.children}</span>
+
+      {props.icon && <FontAwesomeIcon icon={props.icon} />}
     </StyledAnchor>
   )
 }

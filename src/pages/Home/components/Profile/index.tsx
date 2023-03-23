@@ -1,3 +1,4 @@
+import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
 import { Buildings, GithubLogo, Users } from 'phosphor-react'
 import { InfoCard } from '../../../../components/InfoCard'
 import { Link } from '../../../../components/Link'
@@ -15,7 +16,7 @@ export function Profile() {
           <ProfileContent>
             <div>
               <h2>User Name</h2>
-              <Link href="#github" withIcon>
+              <Link href="#github" icon={faArrowUpRightFromSquare}>
                 GITHUB
               </Link>
             </div>
