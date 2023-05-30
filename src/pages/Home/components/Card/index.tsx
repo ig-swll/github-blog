@@ -3,7 +3,7 @@ import { CardContainer } from './styles'
 
 export function Card() {
   return (
-    <CardContainer>
+    <CardContainer to="#">
       <div>
         <h4>Teste</h4>
         <span>Há 1 dia</span>

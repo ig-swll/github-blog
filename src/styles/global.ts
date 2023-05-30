@@ -35,6 +35,6 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   :focus:not(input) {
-    box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.blue};
+    outline-color: ${({ theme }) => theme.colors.blue};
   }
 `
