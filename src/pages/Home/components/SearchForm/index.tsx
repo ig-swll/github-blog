@@ -1,13 +1,16 @@
 import { useForm } from 'react-hook-form'
 import { FormContainer, Input } from './styles'
+import { useContext } from 'react'
+import { PostsContext } from '../../../../contexts/PostsContext'
 
 export function SearchForm() {
+  const { fetchPosts, posts } = useContext(PostsContext)
   const { handleSubmit, register, reset } = useForm()
 
   async function searchPosts(form: any) {
     const { title } = form
-    // const posts = await getPosts(title)
-    console.log(title)
+
+    fetchPosts(title)
     reset()
   }
 
@@ -15,7 +18,7 @@ export function SearchForm() {
     <FormContainer onSubmit={handleSubmit(searchPosts)}>
       <div>
         <h3>Publicações</h3>
-        <span>6 publicações</span>
+        <span>{posts.length} publicações</span>
       </div>
       <Input
         type="search"

@@ -10,8 +10,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { InfoCard } from '../../components/InfoCard'
 import { Link } from '../../components/Link'
 import { PostInfoLinks, PostStats, PostTitle } from './styles'
+import { useLoaderData } from 'react-router-dom'
 
 export function Post() {
+  const data = useLoaderData()
+  console.log(data)
+
   return (
     <article>
       <InfoCard>
