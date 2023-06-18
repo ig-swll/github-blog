@@ -28,7 +28,6 @@ interface PostData {
 
 export function Post() {
   const data = useLoaderData() as PostData
-  console.log(data)
 
   return (
     <article>
