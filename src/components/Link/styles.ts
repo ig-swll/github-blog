@@ -1,11 +1,12 @@
+import { Link, LinkProps } from 'react-router-dom'
 import styled from 'styled-components'
 
-interface StyledAnchorProps {
+interface StyledAnchorProps extends LinkProps {
   withDecoration?: boolean
   iconAtLeft?: boolean
 }
 
-export const StyledAnchor = styled.a<StyledAnchorProps>`
+export const StyledAnchor = styled(Link)<StyledAnchorProps>`
   color: ${({ theme }) => theme.colors.blue};
   border-bottom: 1px solid transparent;
   cursor: pointer;

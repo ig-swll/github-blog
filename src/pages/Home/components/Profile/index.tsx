@@ -1,43 +1,58 @@
-import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
-import { Buildings, GithubLogo, Users } from 'phosphor-react'
+import {
+  faArrowUpRightFromSquare,
+  faBuilding,
+  faUserGroup,
+} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
+
 import { InfoCard } from '../../../../components/InfoCard'
 import { Link } from '../../../../components/Link'
 import { ProfileContent, ProfileStats, ProfileWrapper } from './styles'
+import { useLoaderData } from 'react-router-dom'
+
+interface UserData {
+  avatarUrl: string
+  bio: string
+  company: string
+  followers: number
+  profileUrl: string
+  login: string
+  name: string
+}
 
 export function Profile() {
+  const profileData = useLoaderData() as UserData
+
   return (
     <InfoCard>
       <ProfileWrapper>
-        <img
-          src="https://api.lorem.space/image/face?w=150&h=150"
-          alt="Imagem de User"
-        />
+        <img src={profileData.avatarUrl} alt="" />
         <div>
           <ProfileContent>
             <div>
-              <h2>User Name</h2>
-              <Link href="#github" icon={faArrowUpRightFromSquare}>
+              <h2>{profileData.name}</h2>
+              <Link to={profileData.profileUrl} icon={faArrowUpRightFromSquare}>
                 GITHUB
               </Link>
             </div>
-            <p>
-              Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu
-              viverra massa quam dignissim aenean malesuada suscipit. Nunc,
-              volutpat pulvinar vel mass.
-            </p>
+            <p>{profileData.bio}</p>
           </ProfileContent>
           <ProfileStats>
             <div>
-              <GithubLogo size={20} weight="fill" />
+              <FontAwesomeIcon icon={faGithub} />
               <span>sethwololo</span>
             </div>
             <div>
-              <Buildings size={20} weight="fill" />
+              <FontAwesomeIcon icon={faBuilding} />
               <span>Senado Federel</span>
             </div>
             <div>
-              <Users size={20} weight="fill" />
-              <span>-1 seguidor</span>
+              <FontAwesomeIcon icon={faUserGroup} />
+              <span>
+                {profileData.followers} seguidor
+                {profileData.followers > 1 && 'es'}
+              </span>
             </div>
           </ProfileStats>
         </div>

@@ -1,10 +1,10 @@
-import { AnchorHTMLAttributes } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconDefinition } from '@fortawesome/free-solid-svg-icons'
+import { LinkProps as BaseLinkProps } from 'react-router-dom'
 
 import { StyledAnchor } from './styles'
 
-interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+interface LinkProps extends BaseLinkProps {
   withDecoration?: boolean
   icon?: IconDefinition
   iconAtLeft?: boolean

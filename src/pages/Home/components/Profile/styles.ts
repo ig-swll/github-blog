@@ -17,6 +17,7 @@ export const ProfileWrapper = styled.div`
     flex-direction: column;
     justify-content: space-between;
     gap: 0.75rem;
+    width: 100%;
   }
 `
 

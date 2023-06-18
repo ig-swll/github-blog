@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { formatDistanceToNow } from 'date-fns'
 import { CardContainer } from './styles'
+import ptBR from 'date-fns/locale/pt-BR'
 
 interface CardProps {
   id: number
@@ -14,7 +15,12 @@ export function Card(props: CardProps) {
     <CardContainer to={`/post/${props.id}`}>
       <div>
         <h4>{props.title}</h4>
-        <span>{formatDistanceToNow(props.createdAt, { addSuffix: true })}</span>
+        <span>
+          {formatDistanceToNow(props.createdAt, {
+            addSuffix: true,
+            locale: ptBR,
+          })}
+        </span>
       </div>
       <p>{props.description}</p>
     </CardContainer>

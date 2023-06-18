@@ -29,7 +29,6 @@ interface PostsContextType {
 export const PostsContext = createContext({} as PostsContextType)
 
 export function PostsProvider({ children }: PropsWithChildren) {
-  // const {} = useLocation()
   const [posts, setPosts] = useState<Post[]>([])
 
   const controller = useMemo(() => new AbortController(), [])
